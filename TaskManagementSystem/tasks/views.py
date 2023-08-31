@@ -13,10 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class TaskView(viewsets.ModelViewSet):
-    """
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
-    """
+   
     permission_classes = [IsAuthenticated, IsOwner]
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
@@ -73,7 +70,7 @@ def tasks_incompleted(request):
     return Response(serializer.data)
 
 
-
+#additional feature to export
 def save_as_csv(request):
     """
         Export data to csv file.

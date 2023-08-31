@@ -16,8 +16,9 @@ class Task(models.Model):
     title = models.CharField(_('Title'), max_length=100)
     description = models.TextField(_('Description'))
     created_at = models.DateTimeField(_("Created at"), auto_now_add=True)
-    updated_at = models.DateTimeField(_("Updated at"), auto_now=True)
+    due_date = models.DateTimeField(_("Due Date"), auto_now=True)
     completed = models.BooleanField(_('Completed'), default=False)
+    status = models.TextChoices(_('Status'))
 
     class Meta:
         ordering = ('title', )
